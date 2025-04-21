@@ -217,12 +217,12 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 ###📌 Explicação:
-FROM: imagem base do Python
-WORKDIR: diretório de trabalho no container
-COPY: copia os arquivos para o container
-RUN: instala dependências
-EXPOSE: expõe a porta 5000
-CMD: executa o script Python
+. FROM: imagem base do Python
+. WORKDIR: diretório de trabalho no container
+. COPY: copia os arquivos para o container
+. RUN: instala dependências
+. EXPOSE: expõe a porta 5000
+. CMD: executa o script Python
 
  ### 🔹 Passo 5: Build da imagem:
 ```bash
@@ -236,4 +236,7 @@ docker run -d -p 5000:5000 flask-app
 ```bash
 http://localhost:5000
 ```
+---
+<img src="https://github.com/user-attachments/assets/4717b30d-2e45-4289-a779-4da5b0c93e47" alt="Imagem">
+
 
