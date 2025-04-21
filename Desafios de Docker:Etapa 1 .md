@@ -135,14 +135,48 @@ http://localhost:8080
 
 ---
 
+## 2. Criando e rodando um container interativo
+🎯 Objetivo:
+Rodar um container Ubuntu e usar seu terminal para instalar pacotes, visualizar logs etc.
+### 🔹 Passo 1:
+Execute um container interativo:
+```bash 
+docker run -it ubuntu bash
+```
+### 📌 Explicação:
+-it: interativo + pseudo-terminal (permite usar o terminal dentro do container)
+ubuntu: imagem oficial do Ubuntu
+bash: executa o bash dentro do container
 
+### 🔹 Passo 2:
+Dentro do container, atualize o sistema e instale pacotes:
+```bash
+apt update
+apt install -y curl
+```
+### 🔹 Passo 3:
+Testar os comandos:
+```bash 
+dmesg | tail     # Exibe os últimos logs do sistema
+curl ifconfig.me # Exibe o IP do container
+```
+### 🔹 Passo 4 :Saia do container
+Para sair do container use :
+```bash
+exit
+```
+ ### Criando um Dockerfile com Flask (Python)
+🎯 Objetivo:
+Criar uma aplicação Flask simples que roda em um container. Ao acessar localhost:5000, ela responde com uma mensagem.
 
+🔹 Passo 1:
+ Crie a pasta do projeto:
+```bash
+mkdir 04-flask-app
+cd 04-flask-app
+```
 
-
-
-
-
-### 🔹 Passo 5: Criar o arquivo principal app.py
+### 🔹 Passo 2: Criar o arquivo principal app.py
 Agora vamos criar o arquivo Python que representa a aplicação Flask:
 
 ```bash 
@@ -162,5 +196,44 @@ if __name__ == '__main__':
 ```
 
 <img src="https://github.com/user-attachments/assets/40edba28-de38-4e4c-ae70-2b475a4ce742" alt="Image" />
+---
 
+ ### 🔹 Passo 3: Crie o arquivo requirements.txt:
+```bash
+echo flask > requirements.txt
+```
+ ### 🔹 Passo 4: Crie o Dockerfile:
+```bash
+nano Dockerfile
+```
+
+```bash
+FROM python:3.8-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "app.py"]
+```
+###📌 Explicação:
+FROM: imagem base do Python
+WORKDIR: diretório de trabalho no container
+COPY: copia os arquivos para o container
+RUN: instala dependências
+EXPOSE: expõe a porta 5000
+CMD: executa o script Python
+
+ ### 🔹 Passo 5: Build da imagem:
+```bash
+docker build -t flask-app .
+```
+ ### 🔹 Passo 6: Execute o container:
+```bash
+docker run -d -p 5000:5000 flask-app
+```
+ ### 🔹 Passo 7 :Acesse no navegador:
+```bash
+http://localhost:5000
+```
 
