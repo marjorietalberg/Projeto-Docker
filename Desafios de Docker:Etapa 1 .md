@@ -17,16 +17,14 @@ mkdir ~/docker-exercicios/01-nginx-tailwind
 cd ~/docker-exercicios/01-nginx-tailwind
 ```
 ---
-###🔹 Passo 2:
+### 🔹 Passo 2:
 Crie o arquivo index.html
 ```bash
 nano index.html
 ```
-```bash
-  GNU nano 7.2                                                                          index.html                                                                                    
+```bash                                                                            
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,15 +68,12 @@ nano index.html
     </head>
 
 <body class="bg-gradient-to-r from-purple-500 to-blue-500 text-white font-sans">
-
-    <!-- Header -->
     <header class="text-center py-20 slide-in">
         <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Bem-vi>
         <p class="text-xl mb-6 animate__animated animate__fadeIn animate__delay-1s">>
         <a href="#about" class="bg-white text-purple-500 py-3 px-6 rounded-full text>
     </header>
 
-    <!-- About Section -->
      <section id="about" class="py-20 bg-white text-gray-900 fade-in">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-semibold mb-6">Sobre o Projeto</h2>
@@ -87,7 +82,7 @@ nano index.html
         </div>
           </div>
     </section>
-      <!-- Features Section -->
+  
     <section class="py-20">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
             <div class="text-center bg-white p-6 rounded-lg shadow-xl transform hove>
@@ -105,13 +100,12 @@ nano index.html
         </div>
     </section>
 
-    <!-- Footer -->
+  
   <footer class="bg-gray-900 text-white py-10 text-center">
         <p>&copy; 2025 Meu Site Criativo. Todos os direitos reservados.</p>
     </footer>
 
 </body>
-
 </html>
 ```
 ###🔹 Passo 3:
@@ -122,17 +116,18 @@ docker run -d --name nginx-tailwind -p 8080:80 -v $(pwd)/index.html:/usr/share/n
 📌 Explicação:
 
 -d: roda o container em segundo plano (modo detached)
-
---name: dá um nome para o container
-
+-name: dá um nome para o container
 -p 8080:80: mapeia a porta local 8080 para a porta 80 do container
-
 -v: monta o arquivo local no caminho correto do NGINX
-###🔹Passo 4:
+
+### 🔹Passo 4:
 Acesse no navegador:
 ```bash
 http://localhost:8080
 ```
+<img src="https://github.com/user-attachments/assets/3daabff8-3564-4440-892c-a98706d159bf" alt="Imagem 1">
+<img src="https://github.com/user-attachments/assets/a1161ad7-3170-48d0-b395-79a54391e268" alt="Imagem 2">
+<img src="https://github.com/user-attachments/assets/b019fcc1-3cb2-4b39-9b41-7a1bfa79764f" alt="Imagem 3">
 
 
 
