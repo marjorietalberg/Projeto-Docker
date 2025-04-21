@@ -108,17 +108,21 @@ nano index.html
 </body>
 </html>
 ```
-###🔹 Passo 3:
+---
+### 🔹 Passo 3:
 Rode o container com volume
+
 ```bash
 docker run -d --name nginx-tailwind -p 8080:80 -v $(pwd)/index.html:/usr/share/nginx/html/index.html nginx
 ```
-📌 Explicação:
+### 📌 Explicação:
 
 -d: roda o container em segundo plano (modo detached)
 -name: dá um nome para o container
 -p 8080:80: mapeia a porta local 8080 para a porta 80 do container
 -v: monta o arquivo local no caminho correto do NGINX
+
+---
 
 ### 🔹Passo 4:
 Acesse no navegador:
@@ -129,7 +133,7 @@ http://localhost:8080
 <img src="https://github.com/user-attachments/assets/a1161ad7-3170-48d0-b395-79a54391e268" alt="Imagem 2">
 <img src="https://github.com/user-attachments/assets/b019fcc1-3cb2-4b39-9b41-7a1bfa79764f" alt="Imagem 3">
 
-
+---
 
 
 
