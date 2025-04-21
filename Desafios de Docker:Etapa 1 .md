@@ -7,10 +7,15 @@
 Descrição
 Neste desafio, vamos rodar um container Docker usando a imagem oficial do Nginx e configurar uma landing page com TailwindCSS. O objetivo é servir uma página estática através do Nginx, estilizada com o TailwindCSS.
 
-### . Passos
-Passo 1: Criando o Diretório do Projeto
+### 🔹 Passo 1: Criando o Diretório do Projeto
 Primeiro, crie um diretório onde armazenaremos os arquivos do projeto:
 ```bash
 mkdir ~/docker-exercicios/01-nginx-tailwind
 cd ~/docker-exercicios/01-nginx-tailwind
+```
+### 🔹 Passo 2: Criar o arquivo principal app.py
+Agora vamos criar o arquivo Python que representa a aplicação Flask:
+
+```bash 
+nano app.py
 ```
