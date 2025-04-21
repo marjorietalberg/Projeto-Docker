@@ -216,7 +216,7 @@ COPY . .
 EXPOSE 5000
 CMD ["python", "app.py"]
 ```
-###📌 Explicação:
+### 📌 Explicação:
 . FROM: imagem base do Python
 . WORKDIR: diretório de trabalho no container
 . COPY: copia os arquivos para o container
