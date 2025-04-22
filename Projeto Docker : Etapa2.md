@@ -185,3 +185,8 @@ Abra o navegador ou use o curl para acessar a aplicação rodando no container:
 ```bash
 curl http://localhost:8080/ping
 ```
+ <img src="https://github.com/user-attachments/assets/b36aea10-844c-4d6c-a907-2d803f28e1ab" alt="Imagem 1" style="max-width: 100%; height: auto; display: block; margin-bottom: 20px;">
+ 
+  <img src="https://github.com/user-attachments/assets/a4960611-4475-4fb1-b76c-fd17995ea02c" alt="Imagem 2" style="max-width: 100%; height: auto; display: block;">
+
+---
