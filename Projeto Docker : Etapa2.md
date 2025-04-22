@@ -78,7 +78,7 @@ nano main.go
 
 Abra o arquivo main.go e insira o seguinte código de exemplo: 
 ```bash
-package main
+
 
 import (
 	"fmt"
@@ -109,7 +109,7 @@ touch Dockerfile
 ```
 b. Escrever o conteúdo do Dockerfile:
 ```bash
-# Build Stage
+
 FROM golang:1.18 AS builder
 
 WORKDIR /go/src/app
@@ -119,7 +119,6 @@ RUN go mod init gs-ping && \
     go mod tidy && \
     go build -o gs-ping .
 
-# Runtime Stage
 FROM debian:bullseye-slim
 
 WORKDIR /app
@@ -129,3 +128,46 @@ EXPOSE 8080
 CMD ["./gs-ping"]
 
 ```
+
+<img src="https://github.com/user-attachments/assets/b9bbd9c0-423f-4449-bdd3-8708b15292ec" alt="Image" style="max-width: 100%; height: auto;">
+
+### 🧠 Explicação:
+Stage 1 (Build):
+
+FROM golang:1.18 AS builder: Usa a imagem oficial do Go para construir a aplicação.
+
+WORKDIR /go/src/app: Define o diretório de trabalho no container.
+
+COPY . .: Copia todos os arquivos do diretório local para o container.
+
+RUN go mod init gs-ping && go mod tidy && go build -o gs-ping .: Inicializa o módulo Go, baixa as dependências e compila o aplicativo Go.
+
+Stage 2 (Runtime):
+
+FROM debian:bullseye-slim: Usa uma imagem mais leve baseada no Debian.
+
+WORKDIR /app: Define o diretório de trabalho.
+
+COPY --from=builder /go/src/app/gs-ping .: Copia a aplicação compilada do estágio de build.
+
+EXPOSE 8080: Expõe a porta onde o servidor Go estará escutando.
+
+CMD ["./gs-ping"]: Executa o binário compilado na inicialização do container.
+
+---
+
+### 3. Criar a imagem Docker
+No diretório onde está o seu Dockerfile, execute o comando abaixo para construir a imagem:
+```bash
+docker build -t gs-ping .
+
+```
+Esse comando cria uma imagem Docker chamada gs-ping.
+
+### 4. Rodar o container a partir da imagem
+Agora que você tem a imagem, você pode rodá-la em um container. Use o seguinte comando:
+```bash
+docker run -d -p 8080:8080 --name gs-ping-container gs-ping
+
+```
+
