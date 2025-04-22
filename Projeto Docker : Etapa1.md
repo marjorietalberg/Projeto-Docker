@@ -5,17 +5,6 @@
 ## 🎯 Objetivo:
 Executar um container NGINX que sirva uma página HTML com TailwindCSS (um framework moderno de CSS). Ao acessar localhost:8080, o navegador mostrará a landing page.
 
-
-### 1️⃣ Rodando um Container Básico com Nginx e TailwindCSS 🌐
-Descrição
-Neste desafio, vamos rodar um container Docker usando a imagem oficial do Nginx e configurar uma landing page com TailwindCSS. O objetivo é servir uma página estática através do Nginx, estilizada com o TailwindCSS.
-
-### 🔹 Passo 1: Criando o Diretório do Projeto
-Primeiro, crie um diretório onde armazenaremos os arquivos do projeto:
-```bash
-mkdir ~/docker-exercicios/01-nginx-tailwind
-cd ~/docker-exercicios/01-nginx-tailwind
-```
 ### 📌 Você pode usar a imagem oficial do Nginx e montar um volume com sua landing page.
 
 Passos:
@@ -32,6 +21,16 @@ docker run --name nginx-tailwind -p 8080:80 -v $(pwd):/usr/share/nginx/html:ro -
 
 ---
 
+### 1️⃣ Rodando um Container Básico com Nginx e TailwindCSS 🌐
+Descrição
+Neste desafio, vamos rodar um container Docker usando a imagem oficial do Nginx e configurar uma landing page com TailwindCSS. O objetivo é servir uma página estática através do Nginx, estilizada com o TailwindCSS.
+
+### 🔹 Passo 1: Criando o Diretório do Projeto
+Primeiro, crie um diretório onde armazenaremos os arquivos do projeto:
+```bash
+mkdir ~/docker-exercicios/01-nginx-tailwind
+cd ~/docker-exercicios/01-nginx-tailwind
+```
 ### 🔹 Passo 2:
 Crie o arquivo index.html
 ```bash
@@ -133,8 +132,11 @@ docker run -d --name nginx-tailwind -p 8080:80 -v $(pwd)/index.html:/usr/share/n
 ### 📌 Explicação:
 
 -d: roda o container em segundo plano (modo detached)
+
 -name: dá um nome para o container
+
 -p 8080:80: mapeia a porta local 8080 para a porta 80 do container
+
 -v: monta o arquivo local no caminho correto do NGINX
 
 ---
@@ -247,25 +249,34 @@ CMD ["python", "app.py"]
 ```
 ### 📌 Explicação:
 . FROM: imagem base do Python
+
 . WORKDIR: diretório de trabalho no container
+
 . COPY: copia os arquivos para o container
+
 . RUN: instala dependências
+
 . EXPOSE: expõe a porta 5000
+
 . CMD: executa o script Python
+
 
  ### 🔹 Passo 5: Build da imagem:
 ```bash
 docker build -t flask-app .
 ```
+
  ### 🔹 Passo 6: Execute o container:
 ```bash
 docker run -d -p 5000:5000 flask-app
 ```
+
  ### 🔹 Passo 7 :Acesse no navegador:
 ```bash
 http://localhost:5000
 ```
 ---
+
 <img src="https://github.com/user-attachments/assets/4717b30d-2e45-4289-a779-4da5b0c93e47" alt="Imagem">
 
 
