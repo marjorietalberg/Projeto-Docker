@@ -135,7 +135,7 @@ http://localhost:8080
 
 ---
 
-## 2. Criando e rodando um container interativo
+## 2️⃣  2. Criando e rodando um container interativo
 🎯 Objetivo:
 Rodar um container Ubuntu e usar seu terminal para instalar pacotes, visualizar logs etc.
 ### 🔹 Passo 1:
@@ -165,7 +165,21 @@ Para sair do container use :
 ```bash
 exit
 ```
- ### Criando um Dockerfile com Flask (Python)
+### 3️⃣ Listando e removendo containers
+a. Lista todos os containers (rodando e parados):
+```bash
+docker ps -a
+```
+b. Parar um container:
+```bash
+docker stop ubuntu-test
+```
+c. Remover um container:
+```bash
+docker rm ubuntu-test
+```
+
+ ### 4️⃣ Criando um Dockerfile com Flask (Python)
 🎯 Objetivo:
 Criar uma aplicação Flask simples que roda em um container. Ao acessar localhost:5000, ela responde com uma mensagem.
 
