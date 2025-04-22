@@ -171,3 +171,17 @@ docker run -d -p 8080:8080 --name gs-ping-container gs-ping
 
 ```
 
+### 🧠 Explicação:
+-d: Roda o container em segundo plano (modo detached).
+
+-p 8080:8080: Mapeia a porta 8080 do container para a porta 8080 do host.
+
+--name gs-ping-container: Nomeia o container como gs-ping-container.
+
+gs-ping: Nome da imagem que acabamos de construir.
+
+### 5. Testar o funcionamento da aplicação
+Abra o navegador ou use o curl para acessar a aplicação rodando no container:
+```bash
+curl http://localhost:8080/ping
+```
