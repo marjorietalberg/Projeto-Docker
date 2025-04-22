@@ -16,7 +16,22 @@ Primeiro, crie um diretório onde armazenaremos os arquivos do projeto:
 mkdir ~/docker-exercicios/01-nginx-tailwind
 cd ~/docker-exercicios/01-nginx-tailwind
 ```
+### 📌 Você pode usar a imagem oficial do Nginx e montar um volume com sua landing page.
+
+Passos:
+a. Baixe a landing page do Tailwind:
+```bash
+curl -L https://github.com/tailwindlabs/tailwindcss-landing-page/archive/refs/heads/main.zip -o landing.zip
+unzip landing.zip
+cd tailwindcss-landing-page-main
+```
+b. Rode o container Nginx servindo essa pasta:
+```bash
+docker run --name nginx-tailwind -p 8080:80 -v $(pwd):/usr/share/nginx/html:ro -d nginx
+```
+
 ---
+
 ### 🔹 Passo 2:
 Crie o arquivo index.html
 ```bash
