@@ -98,5 +98,34 @@ func main() {
  <img src="https://github.com/user-attachments/assets/a4e98d26-cf9a-4faa-83c3-bd7708ce664a" alt="Image" style="max-width: 100%; height: auto;">
 
 ---
+### 2. Criar o Dockerfile com multi-stage build
+O multi-stage build permite que você construa sua aplicação Go em uma etapa (build stage), e depois copie apenas o que for necessário para uma imagem mais limpa e leve na etapa final (runtime stage).
 
+a. Criar o arquivo Dockerfile:
 
+```bash
+touch Dockerfile
+
+```
+b. Escrever o conteúdo do Dockerfile:
+```bash
+# Build Stage
+FROM golang:1.18 AS builder
+
+WORKDIR /go/src/app
+COPY . .
+
+RUN go mod init gs-ping && \
+    go mod tidy && \
+    go build -o gs-ping .
+
+# Runtime Stage
+FROM debian:bullseye-slim
+
+WORKDIR /app
+COPY --from=builder /go/src/app/gs-ping .
+
+EXPOSE 8080
+CMD ["./gs-ping"]
+
+```
