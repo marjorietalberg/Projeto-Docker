@@ -69,9 +69,34 @@ touch main.go
   <img src="https://github.com/user-attachments/assets/39d1a3ea-a080-40f2-abf9-dca22207383d" alt="Image" style="max-width: 100%; height: auto;">
 
 ---
+### Para abrir o editor use :
+```bash
+nano main.go
 
+```
+### b. Escrever o código básico da aplicação:
 
+Abra o arquivo main.go e insira o seguinte código de exemplo: 
+```bash
+package main
 
+import (
+	"fmt"
+	"net/http"
+)
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Ping OK!")
+}
+
+func main() {
+	http.HandleFunc("/ping", handler)
+	http.ListenAndServe(":8080", nil)
+}
+
+```
+ <img src="https://github.com/user-attachments/assets/a4e98d26-cf9a-4faa-83c3-bd7708ce664a" alt="Image" style="max-width: 100%; height: auto;">
+
+---
 
 
