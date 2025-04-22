@@ -66,6 +66,10 @@ cd gs-ping
 touch main.go
 
 ```
+  <img src="https://github.com/user-attachments/assets/39d1a3ea-a080-40f2-abf9-dca22207383d" alt="Image" style="max-width: 100%; height: auto;">
+
+---
+
 
 
 
