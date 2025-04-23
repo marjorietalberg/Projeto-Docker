@@ -189,16 +189,54 @@ curl http://localhost:8080/ping
  
 
 ---
-✅ 07 - Comunicação entre containers (Node.js + MongoDB)
-📌 Objetivo:
-Criar uma rede Docker personalizada onde um container Node.js se comunica com um container MongoDB.
+# Desafio 7 - React + Node.js + MongoDB com Docker Compose
+
+Este repositório documenta o Desafio 7 do curso de Docker, cujo objetivo é executar uma aplicação fullstack com frontend em React, backend em Node.js/Express e banco de dados MongoDB, utilizando o Docker Compose para orquestração de containers.
 
 ---
-📁 Estrutura do projeto:
+## 📌 Objetivo do desafio
+O desafio, proposto no repositório oficial da Docker, disponível em:
+
+🔗 https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+
+consiste em:
+
+✅ Subir os containers necessários com Docker Compose
+✅ Garantir a comunicação entre o frontend, o backend e o MongoDB
+✅ Verificar que a aplicação está funcional via navegador
+---
+
+🧰 Tecnologias utilizadas
+Docker: para conteinerização
+
+Docker Compose: para orquestrar os containers
+
+React: frontend da aplicação
+
+Node.js/Express: backend da aplicação
+
+MongoDB: banco de dados da aplicação
+
+---
+Etapas realizadas
+1. Clonagem do repositório oficial:
 ```bash
-07-node-mongo-rede/
-├── backend/
-│   ├── server.js
-│   └── Dockerfile
+git clone https://github.com/docker/awesome-compose.git
+cd awesome-compose/react-express-mongodb
 ```
+2. Subida dos containers com Docker Compose:
+```bash
+docker-compose up -d
+```
+
+3.Verificação do status dos serviços:
+```bash
+docker-compose ps
+```
+
+4.Logs do backend para confirmar conexão:
+```bash
+docker-compose logs backend
+```
+
 
