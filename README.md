@@ -1,11 +1,9 @@
 # Projeto Docker e Containers 🚀
 
-Bem-vindo ao meu projeto de Docker! Aqui, compartilho minha jornada no uso de **containers Docker** para criar ambientes de desenvolvimento e produção eficientes. Durante o projeto, utilizei diversas ferramentas e tecnologias, incluindo **Docker**, **Flask**, **Node.js**, **Go**, e muitos outros.
-
+Este projeto é uma coletânea prática de exercícios com Docker, divididos em três níveis de dificuldade: Fácil, Médio e Difícil. Ele aborda desde os conceitos mais básicos, como criação e execução de containers, uso de imagens oficiais (como Nginx e Ubuntu), construção de imagens com Dockerfile e persistência de dados com volumes, até tópicos mais avançados, como redes Docker, Docker Compose, multi-stage builds, segurança de containers (usuário não-root) e análise de vulnerabilidades com a ferramenta Trivy. É ideal para quem deseja aprender Docker na prática, explorando casos reais de desenvolvimento e boas práticas de containerização.
 ---
 
 ## 🧭 Menu de Navegação
-- [Ferramentas Usadas](#-ferramentas-usadas)
 - [Etapas do Projeto](#-etapas-do-projeto)
 - [Links Úteis](#-links-úteis)
 - [Conclusão](#-conclusão)
