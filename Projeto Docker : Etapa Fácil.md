@@ -5,6 +5,18 @@
 ## 🎯 Objetivo:
 Executar um container NGINX que sirva uma página HTML com TailwindCSS (um framework moderno de CSS). Ao acessar localhost:8080, o navegador mostrará a landing page.
 
+📘 Exercício	Descrição
+
+🔗 01 - Container Nginx + Tailwind	Executa um container Nginx com site estático usando TailwindCSS.
+
+🔗 02 - Ubuntu Interativo	Executa um container Ubuntu de forma interativa, com scripts Bash.
+
+🔗 03 - Gerenciando Containers	Lista, para e remove containers usando comandos Docker.
+
+🔗 04 - Flask com Dockerfile	Cria uma imagem para uma aplicação Flask simples.
+
+---
+
 ### 📌 Você pode usar a imagem oficial do Nginx e montar um volume com sua landing page.
 
 Passos:
