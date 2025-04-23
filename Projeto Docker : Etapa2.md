@@ -224,6 +224,14 @@ Etapas realizadas
 git clone https://github.com/docker/awesome-compose.git
 cd awesome-compose/react-express-mongodb
 ```
+### 📌Instalação do Docker e Docker Compose
+No meu ambiente Linux (Ubuntu), instalei o Docker e o Docker Compose:
+```bash
+sudo apt update
+sudo apt install docker.io
+sudo apt install docker-compose
+```
+
 2. Subida dos containers com Docker Compose:
 ```bash
 docker-compose up -d
@@ -238,5 +246,34 @@ docker-compose ps
 ```bash
 docker-compose logs backend
 ```
+
+  <img src="https://github.com/user-attachments/assets/827f632a-d626-4299-9e7e-61791b514939" alt="Imagem 2">
+
+6. Acesso à aplicação
+A aplicação ficou disponível localmente nas seguintes portas:
+
+🔗 Backend: http://localhost:3000
+
+🔗 Frontend: http://localhost:3000 (mesma porta, pois React e backend estavam unificados)
+
+  ---
+  
+  <img src="https://github.com/user-attachments/assets/6c691732-ffba-45e1-a480-cb0ef10e4472" alt="Imagem 1">
+
+  ---
+ ### 📌 Observações importantes
+Foi necessário instalar o distutils manualmente, pois o docker-compose estava dando erro por falta dele:
+```bash
+sudo apt install python3-distutils
+```
+O ambiente utilizado foi Ubuntu 22.04 com Python 3.12, o que exige atenção extra para evitar conflitos com pacotes Python (por conta do PEP 668).
+
+---
+## 📍 Conclusão
+Este desafio teve como objetivo testar a capacidade de rodar uma aplicação full stack com múltiplos serviços via Docker Compose, e tudo foi realizado com sucesso.
+
+🔗 Link do desafio original:
+https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+
 
 
