@@ -260,6 +260,9 @@ A aplicação ficou disponível localmente nas seguintes portas:
   
   <img src="https://github.com/user-attachments/assets/6c691732-ffba-45e1-a480-cb0ef10e4472" alt="Imagem 1">
 
+  <img src="https://github.com/user-attachments/assets/9d27dd2d-ef26-4159-97e5-62a2a7addee8" alt="Imagem 3">
+
+
   ---
  ### 📌 Observações importantes
 Foi necessário instalar o distutils manualmente, pois o docker-compose estava dando erro por falta dele:
