@@ -288,3 +288,17 @@ func main() {
     }
 }
 ```
+---
+✅ 07 - Comunicação entre containers (Node.js + MongoDB)
+📌 Objetivo:
+Criar uma rede Docker personalizada onde um container Node.js se comunica com um container MongoDB.
+
+---
+📁 Estrutura do projeto:
+```bash
+07-node-mongo-rede/
+├── backend/
+│   ├── server.js
+│   └── Dockerfile
+```
+
