@@ -20,11 +20,11 @@ Durante o desenvolvimento, utilizei algumas ferramentas incríveis. Abaixo estã
 |--------------|-------------------------|-----------|
 | **Docker**   | ![Docker](https://img.icons8.com/?size=100&id=kUIdznZvxAud&format=png&color=000000) | Ferramenta principal para a criação e gerenciamento de containers. |
 | **Python**   | ![Python](https://img.icons8.com/?size=100&id=12584&format=png&color=000000) | Linguagem de programação usada para criar aplicações como Flask. |
-| **Node.js**  | ![Node.js](https://img.icons8.com/?size=100&id=undefined&format=png&color=000000) | Plataforma JavaScript usada para criar aplicações back-end. |
+| **Node.js**  | ![Node.js](https://img.icons8.com/?size=100&id=FQlr_bFSqEdG&format=png&color=000000) | Plataforma JavaScript usada para criar aplicações back-end. |
 | **Go (Golang)** | ![Go](https://img.icons8.com/?size=100&id=10710&format=png&color=000000) | Linguagem de programação usada para otimizar uma aplicação com multi-stage builds. |
 | **MySQL**    | ![MySQL](https://img.icons8.com/?size=100&id=11572&format=png&color=000000) | Banco de dados relacional usado no projeto. |
-| **PostgreSQL** | ![PostgreSQL](https://img.icons8.com/ios/50/000000/postgresql.png) | Banco de dados utilizado para um dos containers no projeto. |
-| **TailwindCSS** | ![TailwindCSS](https://img.icons8.com/ios/50/000000/tailwindcss.png) | Framework CSS para criar interfaces de usuário modernas e responsivas. |
+| **PostgreSQL** | ![PostgreSQL](https://img.icons8.com/?size=100&id=25010&format=png&color=000000) | Banco de dados utilizado para um dos containers no projeto. |
+| **TailwindCSS** | ![TailwindCSS](https://img.icons8.com/?size=100&id=qOFWMoaAQIdR&format=png&color=000000) | Framework CSS para criar interfaces de usuário modernas e responsivas. |
 
 ---
 
