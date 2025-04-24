@@ -373,7 +373,8 @@ http://localhost:5050
 ```
  <img src="https://github.com/user-attachments/assets/0241c42f-218b-4ee1-b4a7-e8de57bd70d6" alt="Imagem do Projeto Marjorie">
 
-    <img src="https://github.com/user-attachments/assets/0241c42f-218b-4ee1-b4a7-e8de57bd70d6" alt="Projeto 2">
+ <img src="https://github.com/user-attachments/assets/d0ffad17-0031-45f9-9fb8-f8bf9dd7b041" alt="Projeto Marjorie">
+     
       
  
 Fiz login  com:
@@ -381,5 +382,8 @@ Fiz login  com:
 Email: pgadmin4@pgadmin.org
 
 Senha: admin
+
  ---
+ # Passo a Passo para Criar um Dockerfile
  
+1. Criar o Dockerfile
