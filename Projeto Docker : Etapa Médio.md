@@ -369,6 +369,8 @@ Abra no navegador:
 http://localhost:5050
 
 ```
+ <img src="https://github.com/user-attachments/assets/0241c42f-218b-4ee1-b4a7-e8de57bd70d6" alt="Imagem do Projeto Marjorie">
+ 
 E faça login com:
 
 Email: pgadmin4@pgadmin.org
