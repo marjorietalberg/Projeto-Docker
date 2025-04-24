@@ -1,11 +1,12 @@
 #  Criando e utilizando volumes para persistência de dados
 
-✅ Objetivo:
+### ✅ Objetivo:
 Executar um container MySQL e conectar com um backend (Express) e frontend (React), salvando os dados em um volume persistente, para que eles não se percam se o container parar ou for recriado.
 
 ---
 
-## 1 Criando e utilizando volumes para persistência de dados com MySQL
+# 1️⃣ Criando e utilizando volumes para persistência de dados com MySQL
+
 ### Etapas :
 ### ✅ 1. Criar volume:
 ```bash
@@ -25,9 +26,13 @@ docker run -d \
 ### 🧠 Explicação:
 
 -d: modo detached (em segundo plano)
+
 -name: nome do container
+
 -e: define variáveis de ambiente
+
 -v: mapeia volume local para o container
+
 -p 3307:3306: redireciona porta da máquina (3307) para o MySQL (3306)
 
 <img src="https://github.com/user-attachments/assets/3a09f049-7a80-41e8-99ca-3b126f7c5805" alt="Image" style="max-width: 100%; height: auto;">
@@ -50,9 +55,9 @@ docker rm mysql-container
 E recrie com o mesmo volume. O banco continuará com os dados!
 
 ---
-### Criando e rodando um container multi-stage com Go
+# 2️⃣ Criando e rodando um container multi-stage com Go
 
-🎯 Objetivo
+### 🎯 Objetivo
 Utilizar multi-stage builds para otimizar uma aplicação Go, reduzindo o tamanho da imagem final. Vamos usar o projeto GS PING, que você pode ter desenvolvido em Golang, como exemplo.
 
 ### Passo a Passo
@@ -189,7 +194,7 @@ curl http://localhost:8080/ping
  
 
 ---
-# Desafio 7 - React + Node.js + MongoDB com Docker Compose
+# 3️⃣  React + Node.js + MongoDB com Docker Compose
 
 Este repositório documenta o Desafio 7 do curso de Docker, cujo objetivo é executar uma aplicação fullstack com frontend em React, backend em Node.js/Express e banco de dados MongoDB, utilizando o Docker Compose para orquestração de containers.
 
@@ -278,5 +283,34 @@ Este desafio teve como objetivo testar a capacidade de rodar uma aplicação ful
 🔗 Link do desafio original:
 https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
 
+---
+# PostgreSQL com pgAdmin via Docker Compose — Ambiente de Banco de Dados Rápido e Gerenciável
+🧠 O que vamos fazer?
 
+✅ Clonar um projeto com Docker Compose
 
+✅ Subir um ambiente com PostgreSQL e pgAdmin
+
+✅ Acessar o pgAdmin via navegador
+
+✅ Conectar-se ao banco PostgreSQL
+
+✅ (Opcional) Customizar com um Dockerfile
+
+---
+### 🚀 Passo a Passo
+🔹 1. Clonar o repositório oficial
+Vamos usar um repositório de exemplo da própria Docker Inc., que está no GitHub:
+
+```bash
+git clone https://github.com/docker/awesome-compose.git
+cd awesome-compose/postgresql-pgadmin
+```
+🧾 Isso vai baixar o código e entrar na pasta específica do exemplo postgresql-pgadmin.
+
+🔹 2. Verificar a estrutura da pasta
+Veja os arquivos com:
+```bash
+ls
+
+```
