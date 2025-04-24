@@ -312,5 +312,86 @@ cd awesome-compose/postgresql-pgadmin
 Veja os arquivos com:
 ```bash
 ls
+```
+ <img src="https://github.com/user-attachments/assets/ab5ef036-c113-4000-86f3-7d96c814181e" alt="Imagem do Projeto">
+
+🔹 3. Ver o conteúdo do docker-compose.yaml
+Esse arquivo define dois serviços: o banco e o gerenciador:
+
+```bash
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "5432:5432"
+    restart: always
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_MAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
+    ports:
+      - "5050:80"
+    restart: always
+```
+### 
+🔧 Esse docker-compose.yaml cria:
+
+Um container com PostgreSQL
+
+Um container com pgAdmin
+
+Um volume persistente para o banco
+
+🔹 4. Subir os containers
+Agora vamos iniciar os serviços com:
+```bash
+docker-compose up -d
+ ```
+✅ Isso fará o Docker baixar as imagens e iniciar os containers em segundo plano (-d = detached).
+
+Você pode confirmar com:
+
+```bash
+docker ps
 
 ```
+🔹 5. Acessar o pgAdmin via navegador
+Abra no navegador:
+```bash
+http://localhost:5050
+
+```
+E faça login com:
+
+Email: pgadmin4@pgadmin.org
+
+Senha: admin
+
+🔹 6. Criar a conexão com o banco no pgAdmin
+Dentro do pgAdmin:
+
+Clique em "Add New Server"
+
+Aba General:
+
+Nome: localdb (ou qualquer nome)
+
+Aba Connection:
+
+Host: db
+
+Port: 5432
+
+Username: postgres
+
+Password: example
+
+📌 O host é db, pois é o nome do container no docker-compose.
