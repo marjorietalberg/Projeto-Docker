@@ -4,10 +4,15 @@ Este projeto é uma coletânea prática de exercícios com Docker, divididos em 
 
 ---
 
-## 🧭 Menu de Navegação
-- [Etapas do Projeto](#-etapas-do-projeto)
-- [Links Úteis](#-links-úteis)
-- [Conclusão](#-conclusão)
+## Menu de Navegação
+- 📌 [Etapas do Projeto](#-etapas-do-projeto)
+
+- [Etapa Fácil](./Projeto%20Docker%20:%20Etapa%20Fácil.md): Introdução ao Docker e comandos básicos.
+- [Etapa Médio](./Projeto%20Docker%20:%20Etapa%20Médio.md): Containers com Flask, MySQL e redes.
+- [Etapa Difícil](./Projeto%20Docker%20:%20Etapa%20Difícil.md): Multi-stage builds e integração de serviços.
+
+- 📌 [Links Úteis](#-links-úteis)
+- 📌 [Conclusão](#-conclusão)
 
 ---
 
@@ -27,11 +32,10 @@ Durante o desenvolvimento, utilizei algumas ferramentas incríveis. Abaixo estã
 
 ---
 
-## 📚 Etapas do Projeto
+# 📚 Etapas do Projeto
 
-### 1️⃣ Parte 1: Containerização Básica
-
-#### 🚀 Rodando um Container Básico
+## 1️⃣ Parte 1: Containerização Básica
+### 🚀 Rodando um Container Básico
 Na primeira parte, criei um container usando a imagem oficial do **Nginx** e configurei uma página estática usando **TailwindCSS**. O objetivo foi entender o processo básico de criação e execução de containers.
 
 #### 🖥️ Criando e Rodando um Container Interativo
@@ -40,9 +44,10 @@ Aqui, iniciei um container com a imagem **Ubuntu** e interagi com o terminal. Te
 #### 📋 Listando e Removendo Containers
 Aprendi como listar containers em execução, parar e remover containers. Essas operações são essenciais para um gerenciamento eficiente.
 
+
 ---
 
-### 2️⃣ Parte 2: Aplicações e Banco de Dados
+## 2️⃣ Parte 2: Aplicações e Banco de Dados
 
 #### 🐍 Criando um Dockerfile para uma Aplicação Python
 Aqui, criei um **Dockerfile** para rodar uma aplicação **Flask** dentro de um container. A aplicação exibe uma mensagem simples no navegador, e o Dockerfile prepara o ambiente necessário para rodá-la.
@@ -55,7 +60,7 @@ Essa parte do projeto envolveu a criação de uma aplicação **Go** (Golang) co
 
 ---
 
-### 3️⃣ Parte 3: Otimização e Segurança
+## 3️⃣ Parte 3: Otimização e Segurança
 
 #### 🌐 Construindo uma Rede Docker para Comunicação entre Containers
 Para criar ambientes mais complexos, construí uma rede Docker personalizada, permitindo que containers **Node.js** e **MongoDB** se comunicassem. Isso foi importante para entender a comunicação entre containers em microservices.
