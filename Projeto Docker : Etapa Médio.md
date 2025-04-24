@@ -284,7 +284,7 @@ Este desafio teve como objetivo testar a capacidade de rodar uma aplicação ful
 https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
 
 ---
-# PostgreSQL com pgAdmin via Docker Compose — Ambiente de Banco de Dados Rápido e Gerenciável
+#  4️⃣ PostgreSQL com pgAdmin via Docker Compose — Ambiente de Banco de Dados Rápido e Gerenciável
 🧠 O que vamos fazer?
 
 ✅ Clonar um projeto com Docker Compose
@@ -363,6 +363,8 @@ Você pode confirmar com:
 docker ps
 
 ```
+Esse comando exibirá uma lista de containers em execução, mostrando o nome dos containers (postgres-db e pgadmin), suas portas mapeadas e outras informações.
+
 🔹 5. Acessar o pgAdmin via navegador
 Abra no navegador:
 ```bash
@@ -370,30 +372,14 @@ http://localhost:5050
 
 ```
  <img src="https://github.com/user-attachments/assets/0241c42f-218b-4ee1-b4a7-e8de57bd70d6" alt="Imagem do Projeto Marjorie">
+
+    <img src="https://github.com/user-attachments/assets/0241c42f-218b-4ee1-b4a7-e8de57bd70d6" alt="Projeto 2">
+      
  
-E faça login com:
+Fiz login  com:
 
 Email: pgadmin4@pgadmin.org
 
 Senha: admin
-
-🔹 6. Criar a conexão com o banco no pgAdmin
-Dentro do pgAdmin:
-
-Clique em "Add New Server"
-
-Aba General:
-
-Nome: localdb (ou qualquer nome)
-
-Aba Connection:
-
-Host: db
-
-Port: 5432
-
-Username: postgres
-
-Password: example
-
-📌 O host é db, pois é o nome do container no docker-compose.
+ ---
+ 
