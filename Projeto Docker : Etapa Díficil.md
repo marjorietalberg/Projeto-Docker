@@ -253,7 +253,85 @@ docker exec -it app-nao-root python /app/exe10.py
 
 ---
 
+# Projeto 12: CORRIGINDO VULNERABILIDADES DO DOCKERFILE
+###🔹 1. Criar pasta do projeto
+```bash
+mkdir exe12
+```
+Entrar na pasta 
+```bash
+cd exe12
+```
 
+🔹 2. Criar o arquivo app.py
+```bash
+nano app.py
+```
+```bash
+from flask import Flask
+import requests
 
+app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Olá, Seja bem vindo ! "
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+```
+🔹 3. Criar o requirements.txt
+```bash
+flask==1.1.1
+requests==2.22.0
+
+```
+🔹 4. Criar o Dockerfile 
+```bash
+nano Dockerfile
+
+```
+```bash
+
+FROM python:3.9-slim
+
+RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get clean
+
+RUN apt-get install -y --no-install-recommends \
+    gcc \
+    build-essential \
+    libpq-dev \
+    perl-base \
+    zlib1g \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir --upgrade setuptools==70.0.0
+
+RUN groupadd -r grupoTeste && useradd -r -g grupoTeste userTeste
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN chown -R userTeste:grupoTeste /app
+
+USER userTeste
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+```
+
+### 🔹 4. Verifique se os arquivos foram criados corretamente
+```bash
+ls
+```
+Suba o container
+```bash
+docker build -t exe12-image .
+docker run -d --name exe12-container -p 5000:5000 exe12-image
+```
