@@ -6,6 +6,7 @@
 
 - [🔐 Evitar Execução como Root em Containers](#evitar-execucao-como-root)
 
+- [🚀Comparando Imagens Docker](#comparando-imagens-docker)
 
 
 ## 🚀 Projeto 9: Site Estático com Docker + NGINX + Material Kit (Creative Tim)
@@ -253,8 +254,9 @@ docker exec -it app-nao-root python /app/exe10.py
 
 ---
 
-# Projeto 12: CORRIGINDO VULNERABILIDADES DO DOCKERFILE
-###🔹 1. Criar pasta do projeto
+# Projeto 12: 🚀 CORRIGINDO VULNERABILIDADES DO DOCKERFILE 🐳 
+
+### 🔹 1. Criar pasta do projeto
 ```bash
 mkdir exe12
 ```
@@ -337,7 +339,90 @@ docker run -d --name exe12-container -p 5000:5000 exe12-image
 ```
 <img src="https://github.com/user-attachments/assets/11f59f36-b879-469e-b7d6-e3740fb11991" alt="Image">
 
-Acesse pelo navegador
+### Acesse pelo navegador
+```bash 
 http://localhost:5000
+```
+<img src="https://github.com/user-attachments/assets/b756a252-8c1e-427e-ad6d-3e4574682e62" alt="Image">
 
+### Para ver se não é não é o root
+```bash
 
+docker exec -it exe12-container sh
+```
+```bash
+whoami
+```
+---
+
+## 📊 Comparando Imagens Docker
+Compare a imagem usada anteriormente com a nova que foi desenvolvida
+a. Gere o relatório da imagem anterior
+```bash
+trivy image --severity HIGH,CRITICAL --format json python:3.9 > resultado.json
+```
+```bash
+jq -r '
+  "| Pacote | Versão atual | Correção disponível | Severidade | Ação sugerida |",
+  "|--------|--------------|---------------------|------------|---------------|",
+  (.Results[] | select(.Vulnerabilities != null) | .Vulnerabilities[] |
+    "| \(.PkgName) | \(.InstalledVersion) | \(.FixedVersion // "❌ Não") | \(.Severity) | \(
+      if .FixedVersion then
+        "Atualizar para a versão \(.FixedVersion)"
+      else
+        "Considerar substituição ou monitorar atualizações futuras"
+      end
+    ) |"
+  )
+' resultado.json | uniq | column -t -s '|' > relatorio1.md
+```
+b. Gere o relatório da nova imagem
+```bash
+trivy image --severity HIGH,CRITICAL --format json exe12-image > resultado.json
+```
+
+```bash
+jq -r 'jq -r '
+  "| Pacote | Versão atual | Correção disponível | Severidade | Ação sugerida |",
+  "|--------|--------------|---------------------|------------|---------------|",
+  (.Results[] | select(.Vulnerabilities != null) | .Vulnerabilities[] |
+    "| \(.PkgName) | \(.InstalledVersion) | \(.FixedVersion // "❌ Não") | \(.Severity) | \(
+      if .FixedVersion then
+        "Atualizar para a versão \(.FixedVersion)"
+      else
+        "Considerar substituição ou monitorar atualizações futuras"
+      end
+    ) |"
+  )
+' resultado2.json | uniq | column -t -s '|' > relatorio2.md
+  "| Pacote | Versão atual | Correção disponível | Severidade | Ação sugerida |",
+  "|--------|--------------|---------------------|------------|---------------|",
+  (.Results[] | select(.Vulnerabilities != null) | .Vulnerabilities[] |
+    "| \(.PkgName) | \(.InstalledVersion) | \(.FixedVersion // "❌ Não") | \(.Severity) | \(
+      if .FixedVersion then
+        "Atualizar para a versão \(.FixedVersion)"
+      else
+        "Considerar substituição ou monitorar atualizações futuras"
+      end
+    ) |"
+  )
+' resultado2.json | uniq | column -t -s '|' > relatorioant.md
+```
+ ### Veja o relatório da imagem anterior
+ ```bash
+cat relatorio1.md
+```
+```bash
+echo $(( $(wc -l < relatorio.md) - 2 ))
+```
+```bash
+
+echo $(( $(wc -l < relatorioant.md) - 2 ))
+```
+---
+### ✅ Conclusão
+Neste exercício, foi possível identificar e corrigir diversas vulnerabilidades presentes em um Dockerfile com más práticas. A imagem original utilizava uma base genérica (python:3.9), o que aumentava consideravelmente o tamanho da imagem e trazia dependências desnecessárias e potencialmente inseguras. Além disso, a execução da aplicação ocorria com privilégios de root, o que representa um sério risco de segurança.
+
+Por meio da aplicação de boas práticas, como a adoção da imagem python:3.9-slim, a utilização de builds em múltiplas etapas (multi-stage), a execução da aplicação com um usuário não-root e o uso do pip install com --no-cache-dir, foi possível gerar uma imagem muito mais enxuta, segura e alinhada com os padrões modernos de DevSecOps.
+
+A comparação entre as versões demonstra a importância de otimizar e proteger as imagens Docker desde a base, reforçando que segurança não deve ser um passo adicional, mas um componente essencial desde o início do ciclo de desenvolvimento.
