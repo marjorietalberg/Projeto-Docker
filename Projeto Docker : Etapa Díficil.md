@@ -1,8 +1,14 @@
+# 🚀 Guia Completo: Trabalhando com Docker e Segurança</h1>
+
+## 📌 Menu 
+
+- [🚀 Projeto: Site Estático com Docker + NGINX + Material Kit (Creative Tim)](#projeto-site-estatico-com-docker-nginx-material-kit-creative-tim)
+
+- [🔐 Evitar Execução como Root em Containers](#evitar-execucao-como-root)
 
 
-[Ir para Meu App DESF10](#-meu-app-desf10)
 
-# 🚀 Projeto: Site Estático com Docker + NGINX + Material Kit (Creative Tim)
+## 🚀 Projeto: Site Estático com Docker + NGINX + Material Kit (Creative Tim)
 ---
 Este projeto tem como objetivo criar uma imagem Docker personalizada, baseada no servidor NGINX, que hospeda um site HTML/CSS moderno. Utilizamos como base a landing page open-source Material Kit da Creative Tim, para garantir um design elegante e responsivo.
 
@@ -142,32 +148,15 @@ docker tag landingpage-nginx seu-usuario/landingpage-nginx
 
 ---
 
-# 🚀 **Meu App DESF10**
+<h2 id="evitar-execucao-como-root">🔐 Evitar Execução como Root em Containers</h2>
 
-Este projeto tem como objetivo demonstrar como criar uma aplicação **Dockerizada** com segurança, evitando a execução como usuário root dentro do container. A aplicação consiste em um simples **script Python**, rodando com um usuário não-root, utilizando um **Dockerfile** customizado.
-
-## 📑 **Sumário**
-
-1. [Objetivo do Projeto](#objetivo-do-projeto)
-2. [Pré-requisitos](#pré-requisitos)
-3. [Passo a Passo para Construção e Execução](#passo-a-passo-para-construção-e-execução)
-4. [Dockerfile Explicado](#dockerfile-explicado)
-5. [Verificação de Usuário Não-root](#verificação-de-usuário-não-root)
-6. [Execução do Script](#execução-do-script)
-7. [Notas Finais](#notas-finais)
+## 🎯 Objetivo do Projeto
+O principal objetivo deste projeto é demonstrar como criar um ambiente de execução Dockerizado seguro, onde a aplicação é rodando com um usuário não-root, evitando vulnerabilidades associadas ao uso de privilégios elevados dentro do container.
 
 ---
 
-## 🎯 **Objetivo do Projeto**
-
-Objetivo do Projeto
-O principal objetivo deste projeto é demonstrar como criar um ambiente de execução Dockerizado seguro, onde a aplicação é rodando com um usuário não-root, evitando vulnerabilidades associadas ao uso de privilégios elevados dentro do container.
-
-
-
-1. Criar o Diretório para o Projeto
+###  1️⃣  Criar o Diretório para o Projeto
 Primeiro, crie um diretório onde você armazenará o seu código e o Dockerfile. No terminal, execute:
-
 
 ```bash
 mkdir ~/meu-app-desf10
@@ -177,27 +166,57 @@ cd ~/meu-app-desf10
 Este comando cria uma nova pasta chamada meu-app-desf10 e navega até ela.
 
 
-
-2. Criar o Script Python
+### 2️⃣ Criar o Script Python
 Dentro da pasta criada, crie o seu script Python, por exemplo, exe10.py. Você pode usar o nano para editar o arquivo:
 
 ```bash
+nano exe10.py
 
+```
+Adicione o código do seu script Python. Exemplo de conteúdo:
+```bash
+                           
+import os
+from datetime import datetime
+
+print("✅ Container rodando como userTeste!")
+print(f"👤 UID/GID: {os.getuid()}/{os.getgid()}")
+print(f"👤 whoami: {os.popen('whoami').read().strip()}")
+print(f"👤 id: {os.popen('id').read().strip()}")
+
+hora_execucao = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print(f"⏰ Horário de execução: {hora_execucao}")
+
+print("👋 Fim do script")
+
+# Mantém o container rodando (Ctrl + C para parar)
+while True:
+    pass
 
 ```
 ]Salve o arquivo pressionando Ctrl + X, depois Y para confirmar e Enter para sair.
 
 
-
-3. Criar o Dockerfile
+### 3️⃣ Criar o Dockerfile
 Agora, crie o Dockerfile que será usado para construir a imagem Docker. Para isso, crie um novo arquivo chamado Dockerfile:
 ```bash
 
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY exe10.py /app/
+
+RUN chown appuser:appuser /app/exe10.py
+
+USER appuser
+
+CMD ["python", "exe10.py"]
 
 ```
 
 
-4. Construir a Imagem Docker
+### 4️⃣ Construir a Imagem Docker
 Agora, que você tem o Dockerfile pronto, é hora de construir a imagem Docker. No terminal, dentro da pasta onde o Dockerfile está, execute:
 
 
@@ -205,29 +224,25 @@ Agora, que você tem o Dockerfile pronto, é hora de construir a imagem Docker. 
 docker build -t desf10-img .
 
 ```
-
-
 Este comando irá construir a imagem com o nome desf10-img a partir do Dockerfile.
 
 
-5. Rodar o Container
+### 5️⃣ Rodar o Container
 Após a construção da imagem, execute o container a partir dessa imagem. Use o seguinte comando:
-
 ```bash
 docker run -d --name
- app-nao-root desf10-img
+app-nao-root desf10-img
 ```
-6. Verificar o Usuário Dentro do Container
+
+### 6️⃣ Verificar o Usuário Dentro do Container
 Agora, você pode verificar se o container está sendo executado com o usuário não-root. Para isso, use o comando whoami dentro do container:
-
-
 
 ```bash
 docker exec -it app-nao-root whoami
 ```
 
-7. Rodar o Script no Container
-Você também pode rodar o script manualmente dentro do container para verificar se está funcionando corretamente. Use o seguinte comando:
+### 7️⃣ Rodar o Script no Container
+Você também pode rodar o script manualmente dentro do container para verificar se está funcionando corretamente. 
 
 ```bash
 docker exec -it app-nao-root python /app/exe10.py
@@ -235,83 +250,16 @@ docker exec -it app-nao-root python /app/exe10.py
 ```
 <img src="https://github.com/user-attachments/assets/7558a041-65d1-41d0-9459-503978bc779f" alt="Imagem">
 
-8. Verificar os Logs do Container
-Se você quiser ver os logs de execução do container, use o comando:
-
-```bash
-docker logs app-nao-root
-
-```
 Esse comando exibirá qualquer saída ou erro gerado pelo container.
+
+### Para ver se não é  usuario root 
+```bash
+whoami
+```
+
+
 ---
 
-📂 Passo 1: Criação da Pasta para o Projeto
-Primeiro, crie uma pasta para o seu projeto no diretório desejado:
-
-1.1 Criar a Pasta do Projeto
-No terminal, execute o seguinte comando para criar uma pasta para o seu projeto:
-```bash
-mkdir nome-do-projeto
-cd nome-do-projeto
-
-```
-
-🔧 Passo 2: Instalar os Pacotes Necessários
-Agora, vamos garantir que todas as ferramentas necessárias estão instaladas no seu sistema, como o Trivy e o jq.
-
-2.1 Instalar o Trivy
-Execute os seguintes comandos para instalar o Trivy, que é uma ferramenta para análise de vulnerabilidades em imagens Docker.
-
-Baixar o Trivy:
-
-```bash
-
-wget https://github.com/aquasecurity/trivy/releases/download/v0.50.1/trivy_0.50.1_Linux-64bit.deb
-
-```
-Instalar o Trivy:
-```bash
-sudo dpkg -i trivy_0.50.1_Linux-64bit.deb
-
-
-```
-Explicação:
-
-O comando wget baixa o pacote .deb do Trivy.
-
-O comando dpkg -i instala o pacote no seu sistema.
-
-
-```bash
-sudo dpkg -i trivy_0.50.1_Linux-64bit.deb
-
-
-```
-2.2 Instalar o jq
-O jq é uma ferramenta para processar e manipular JSON. Para instalar, execute:
-
-```bash
-sudo apt install jq
-
-```
-
-Explicação:
-
-O comando apt install jq instala a ferramenta jq, que será utilizada para processar os resultados do Trivy em formato JSON.
-
-🐳 Passo 3: Analisar Imagens Docker com Trivy
-Agora que você tem o Trivy e o jq instalados, podemos usar o Trivy para analisar imagens Docker.
-
-3.1 Analisar uma Imagem Docker
-Escolha a imagem Docker que deseja verificar. Por exemplo, para verificar a imagem python:3.9, execute o comando:
-
-```bash
-trivy image python:3.9
-
-```
-Explicação:
-
-O comando trivy image python:3.9 analisa a imagem Docker especificada (neste caso, python:3.9) em busca de vulnerabilidades.
 
 
 
