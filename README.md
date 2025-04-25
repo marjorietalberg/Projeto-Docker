@@ -5,7 +5,7 @@ Este projeto é uma coletânea prática de exercícios com Docker, divididos em 
 ---
 
 ## Menu de Navegação
-- 📌 [Etapas do Projeto](#-etapas-do-projeto)
+- 📌 Etapas do Projeto
 
 - [Etapa Fácil](./Projeto%20Docker%20:%20Etapa%20Fácil.md): Introdução ao Docker e comandos básicos.
 - [Etapa Médio](./Projeto%20Docker%20:%20Etapa%20Médio.md): Containers com Flask, MySQL e redes.
@@ -32,9 +32,10 @@ Durante o desenvolvimento, utilizei algumas ferramentas incríveis. Abaixo estã
 
 ---
 
-# 📚 Etapas do Projeto
+# Etapas do Projeto :
 
 ## 1️⃣ Parte 1: Containerização Básica
+
 ### 🚀 Rodando um Container Básico
 Na primeira parte, criei um container usando a imagem oficial do **Nginx** e configurei uma página estática usando **TailwindCSS**. O objetivo foi entender o processo básico de criação e execução de containers.
 
