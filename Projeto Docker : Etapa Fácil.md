@@ -9,11 +9,22 @@ Executar um container NGINX que sirva uma página HTML com TailwindCSS (um frame
 
 🔗 01 - Container Nginx + Tailwind	Executa um container Nginx com site estático usando TailwindCSS.
 
+[Ir para seção 1](#1-rodando-um-container-básico-com-nginx-e-tailwindcss-)
+
 🔗 02 - Ubuntu Interativo	Executa um container Ubuntu de forma interativa, com scripts Bash.
+
+[Ir para seção 2](#2-criando-e-rodando-um-container-interativo)
+
 
 🔗 03 - Gerenciando Containers	Lista, para e remove containers usando comandos Docker.
 
+3️⃣ Listando e removendo containers
+
+
 🔗 04 - Flask com Dockerfile	Cria uma imagem para uma aplicação Flask simples.
+
+[Ir para seção 4](#4-criando-um-dockerfile-com-flask-python)
+
 
 ---
 
@@ -164,7 +175,7 @@ http://localhost:8080
 
 ---
 
-## 2️⃣  2. Criando e rodando um container interativo
+## 2️⃣ Criando e rodando um container interativo
 
 🎯 Objetivo:
 Rodar um container Ubuntu e usar seu terminal para instalar pacotes, visualizar logs etc.
