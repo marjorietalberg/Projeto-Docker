@@ -1,11 +1,11 @@
-#  Criando e utilizando volumes para persistência de dados
+#  📌 Criando e utilizando volumes para persistência de dados
 
-### ✅ Objetivo:
+###  ✅   Objetivo:
 Executar um container MySQL e conectar com um backend (Express) e frontend (React), salvando os dados em um volume persistente, para que eles não se percam se o container parar ou for recriado.
 
 ---
 
-# 1️⃣ Criando e utilizando volumes para persistência de dados com MySQL
+## 1️⃣ Criando e utilizando volumes para persistência de dados com MySQL
 
 ### Etapas :
 ### ✅ 1. Criar volume:
@@ -55,14 +55,13 @@ docker rm mysql-container
 E recrie com o mesmo volume. O banco continuará com os dados!
 
 ---
-# 2️⃣ Criando e rodando um container multi-stage com Go
+## 2️⃣ Criando e rodando um container multi-stage com Go
 
 ### 🎯 Objetivo
 Utilizar multi-stage builds para otimizar uma aplicação Go, reduzindo o tamanho da imagem final. Vamos usar o projeto GS PING, que você pode ter desenvolvido em Golang, como exemplo.
 
 ### Passo a Passo
 1. Criar o projeto Go básico
-Primeiro, se você não tem o projeto Go pronto, vamos criar um exemplo simples de aplicação, chamado GS PING.
 
 a. Criando a estrutura do projeto:
 ```bash
@@ -79,11 +78,9 @@ touch main.go
 nano main.go
 
 ```
-### b. Escrever o código básico da aplicação:
-
+### b. Escrever o código  da aplicação:
 Abra o arquivo main.go e insira o seguinte código de exemplo: 
 ```bash
-
 
 import (
 	"fmt"
@@ -103,7 +100,7 @@ func main() {
  <img src="https://github.com/user-attachments/assets/a4e98d26-cf9a-4faa-83c3-bd7708ce664a" alt="Image" style="max-width: 100%; height: auto;">
 
 ---
-### 2. Criar o Dockerfile com multi-stage build
+###  Criar o Dockerfile com multi-stage build
 O multi-stage build permite que você construa sua aplicação Go em uma etapa (build stage), e depois copie apenas o que for necessário para uma imagem mais limpa e leve na etapa final (runtime stage).
 
 a. Criar o arquivo Dockerfile:
@@ -209,6 +206,7 @@ consiste em:
 ✅ Subir os containers necessários com Docker Compose
 ✅ Garantir a comunicação entre o frontend, o backend e o MongoDB
 ✅ Verificar que a aplicação está funcional via navegador
+
 ---
 
 🧰 Tecnologias utilizadas
@@ -223,6 +221,7 @@ Node.js/Express: backend da aplicação
 MongoDB: banco de dados da aplicação
 
 ---
+
 Etapas realizadas
 1. Clonagem do repositório oficial:
 ```bash
