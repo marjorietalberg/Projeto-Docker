@@ -8,7 +8,7 @@
 
 
 
-## 🚀 Projeto: Site Estático com Docker + NGINX + Material Kit (Creative Tim)
+## 🚀 Projeto 9: Site Estático com Docker + NGINX + Material Kit (Creative Tim)
 ---
 Este projeto tem como objetivo criar uma imagem Docker personalizada, baseada no servidor NGINX, que hospeda um site HTML/CSS moderno. Utilizamos como base a landing page open-source Material Kit da Creative Tim, para garantir um design elegante e responsivo.
 
@@ -148,7 +148,7 @@ docker tag landingpage-nginx seu-usuario/landingpage-nginx
 
 ---
 
-<h2 id="evitar-execucao-como-root">🔐 Evitar Execução como Root em Containers</h2>
+# Projeto 10 :🔐 Evitar Execução como Root em Containers
 
 ## 🎯 Objetivo do Projeto
 O principal objetivo deste projeto é demonstrar como criar um ambiente de execução Dockerizado seguro, onde a aplicação é rodando com um usuário não-root, evitando vulnerabilidades associadas ao uso de privilégios elevados dentro do container.
@@ -231,8 +231,8 @@ Este comando irá construir a imagem com o nome desf10-img a partir do Dockerfil
 Após a construção da imagem, execute o container a partir dessa imagem. Use o seguinte comando:
 ```bash
 docker run -d --name
-app-nao-root desf10-img
 ```
+<img src="https://github.com/user-attachments/assets/ceb2b6a1-1c23-4195-9a1c-a3e3581f66cc" alt="Image" />
 
 ### 6️⃣ Verificar o Usuário Dentro do Container
 Agora, você pode verificar se o container está sendo executado com o usuário não-root. Para isso, use o comando whoami dentro do container:
@@ -249,13 +249,6 @@ docker exec -it app-nao-root python /app/exe10.py
 
 ```
 <img src="https://github.com/user-attachments/assets/7558a041-65d1-41d0-9459-503978bc779f" alt="Imagem">
-
-Esse comando exibirá qualquer saída ou erro gerado pelo container.
-
-### Para ver se não é  usuario root 
-```bash
-whoami
-```
 
 
 ---
