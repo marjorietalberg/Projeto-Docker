@@ -229,7 +229,7 @@ Você também pode rodar o script manualmente dentro do container para verificar
 docker exec -it app-nao-root python /app/exe10.py
 
 ```
-
+<img src="https://github.com/user-attachments/assets/7558a041-65d1-41d0-9459-503978bc779f" alt="Imagem">
 
 8. Verificar os Logs do Container
 Se você quiser ver os logs de execução do container, use o comando:
