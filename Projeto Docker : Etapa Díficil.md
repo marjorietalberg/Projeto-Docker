@@ -335,3 +335,9 @@ Suba o container
 docker build -t exe12-image .
 docker run -d --name exe12-container -p 5000:5000 exe12-image
 ```
+<img src="https://github.com/user-attachments/assets/11f59f36-b879-469e-b7d6-e3740fb11991" alt="Image">
+
+Acesse pelo navegador
+http://localhost:5000
+
+
