@@ -113,6 +113,11 @@ Nomear o container como site-landingpage.
 
 🔹 11. Acesse a Landing Page no Navegador
 Agora, abra o navegador e acesse:
+```bash
+http://localhost:8080
+
+```
+ <img src="https://github.com/user-attachments/assets/4754eefc-c6b5-4e4c-baf1-c96ba5c53de2" alt="Exemplo de Imagem">
 
 🔹 12. (Opcional) Subir a Imagem Docker para o Docker Hub
 Se você deseja subir a imagem Docker para o Docker Hub para compartilhar ou reutilizar, siga os seguintes passos:
