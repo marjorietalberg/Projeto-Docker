@@ -165,6 +165,7 @@ http://localhost:8080
 ---
 
 ## 2️⃣  2. Criando e rodando um container interativo
+
 🎯 Objetivo:
 Rodar um container Ubuntu e usar seu terminal para instalar pacotes, visualizar logs etc.
 ### 🔹 Passo 1:
@@ -174,7 +175,9 @@ docker run -it ubuntu bash
 ```
 ### 📌 Explicação:
 -it: interativo + pseudo-terminal (permite usar o terminal dentro do container)
+
 ubuntu: imagem oficial do Ubuntu
+
 bash: executa o bash dentro do container
 
 ### 🔹 Passo 2:
@@ -183,7 +186,7 @@ Dentro do container, atualize o sistema e instale pacotes:
 apt update
 apt install -y curl
 ```
-### 🔹 Passo 3:
+### 🔹Passo 3:
 Testar os comandos:
 ```bash 
 dmesg | tail     # Exibe os últimos logs do sistema
@@ -194,6 +197,8 @@ Para sair do container use :
 ```bash
 exit
 ```
+---
+
 ### 3️⃣ Listando e removendo containers
 a. Lista todos os containers (rodando e parados):
 ```bash
@@ -207,6 +212,7 @@ c. Remover um container:
 ```bash
 docker rm ubuntu-test
 ```
+---
 
  ### 4️⃣ Criando um Dockerfile com Flask (Python)
 🎯 Objetivo:
@@ -241,11 +247,11 @@ if __name__ == '__main__':
 <img src="https://github.com/user-attachments/assets/40edba28-de38-4e4c-ae70-2b475a4ce742" alt="Image" />
 ---
 
- ### 🔹 Passo 3: Crie o arquivo requirements.txt:
+ ### 🔹Passo 3: Crie o arquivo requirements.txt:
 ```bash
 echo flask > requirements.txt
 ```
- ### 🔹 Passo 4: Crie o Dockerfile:
+ ### 🔹Passo 4: Crie o Dockerfile:
 ```bash
 nano Dockerfile
 ```
