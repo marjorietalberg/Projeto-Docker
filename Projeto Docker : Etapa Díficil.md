@@ -16,109 +16,122 @@ Executar o site localmente via Docker, acessando pelo navegador.
 
 ---
 ### 🛠️ Passo a Passo Completo
-🔽 1. Clonar o repositório do Material Kit
+🔹 1. Clone o Repositório GitHub Localmente
+Com o repositório criado no GitHub, você pode cloná-lo no seu sistema local para começar a trabalhar. Execute o seguinte comando no seu terminal (substitua seu-usuario pelo seu nome de usuário no GitHub):
+```bash
+git clone https://github.com/seu-usuario/landingpage-nginx.git
+cd landingpage-nginx
+
+```
+Esse comando vai clonar o repositório no seu diretório local e entrar na pasta do projeto
+
+🔹 2. Clone o Repositório do Material Kit
+Agora, clone o repositório do Material Kit da Creative Tim:
+Esse comando vai criar a pasta material-kit com todos os arquivos do template.
+
 ```bash
 git clone https://github.com/creativetimofficial/material-kit.git
-cd material-kit
 
 ```
-2. Acessar o diretório do projeto:
+🔹 4. Copie os Arquivos do Material Kit para o Repositório Local
+Agora, vamos copiar os arquivos do Material Kit para o diretório landingpage-nginx no seu repositório local.
 ```bash
-cd material-kit
+cp -r material-kit/* landingpage-nginx/
 
 ```
 
-🐳 Criar o Dockerfile
-Crie um arquivo chamado Dockerfile dentro da pasta material-kit :
+🔹 5. Crie o Dockerfile
+Dentro do diretório landingpage-nginx, crie um arquivo chamado Dockerfile para configurar o servidor Nginx.
+
+Execute:
+
+
+```bash
+nano Dockerfile
+
+```
+No editor de texto, cole o seguinte conteúdo:
 ```bash
 
-FROM nginx:latest
+FROM nginx:alpine
+
+
+RUN rm -rf /usr/share/nginx/html/*
+
 
 COPY . /usr/share/nginx/html/
 
+
 EXPOSE 80
 
+
+CMD ["nginx", "-g", "daemon off;"]
+
 ```
-Explicação:
+Salve e saia (no nano, pressione CTRL + X, depois Y e Enter).
 
-FROM nginx:latest: Estamos utilizando a imagem oficial do Nginx.
+🔹 6. (Opcional) Crie o Arquivo .dockerignore
+Para evitar copiar arquivos desnecessários para o container, crie um arquivo .dockerignore:
+```bash
+nano .dockerignore
+```
+Adicione o seguinte conteúdo:
+```bash
+node_modules
+*.git
+*.zip
 
-COPY . /usr/share/nginx/html/: Copia todos os arquivos da página estática (que estão no diretório atual) para o diretório onde o Nginx espera os arquivos HTML.
+```
+🔹 9. Construa a Imagem Docker Localmente
+Agora, vamos construir a imagem Docker a partir do Dockerfile criado.
 
-EXPOSE 80: O Nginx vai servir o site na porta 80.
+Execute o comando abaixo no diretório onde está o Dockerfile (o diretório landingpage-nginx):
+```bash
+docker build -t landingpage-nginx .
+
+```
+
+Esse comando vai criar a imagem Docker com o nome landingpage-nginx.
 
 
-### Construir a imagem Docker:
 
-Agora, no diretório onde está o Dockerfile, execute o comando para construir a imagem:
+🔹 10. Execute o Container Docker Localmente
+Agora que você tem a imagem Docker, podemos rodar o container com o seguinte comando:
 
 ```bash
-docker build -t meu-site-nginx .
+docker run -d -p 8080:80 --name site-landingpage landingpage-nginx
 
 ```
-Esse comando irá construir a imagem usando o Dockerfile e nomeá-la como meu-site-nginx.
+Esse comando vai:
+
+Iniciar o container em segundo plano (-d).
+
+Mapear a porta 8080 do host para a porta 80 do container (onde o Nginx está ouvindo).
+
+Nomear o container como site-landingpage.
 
 
-Passo 4: Rodar o Container com a Imagem Criada
-Rodar o container com a imagem criada:
+🔹 11. Acesse a Landing Page no Navegador
+Agora, abra o navegador e acesse:
 
-Após a imagem ser criada, você pode rodar o container. Use o seguinte comando:
-```bash
-docker run -d -p 8080:80 --name site-material-kit meu-site-nginx
+🔹 12. (Opcional) Subir a Imagem Docker para o Docker Hub
+Se você deseja subir a imagem Docker para o Docker Hub para compartilhar ou reutilizar, siga os seguintes passos:
 
-```
-Explicação:
-
--d: Rodar o container em segundo plano (modo desanexado).
-
--p 8080:80: Mapeia a porta 80 do container para a porta 8080 da sua máquina local.
-
---name site-material-kit: Define o nome do container como site-material-kit.
-
-meu-site-nginx: Nome da imagem que você criou.
-
-Verificar se o container está rodando:
-
-Para verificar se o container foi iniciado corretamente, use:
-```bash
-docker ps
-
-```
-
-
-Passo 5: Acessar a Página no Navegador
-Agora, a página estática está hospedada no seu container. Para acessá-la, abra o navegador e digite o endereço:
-```bash
-http://localhost:8080
-
-```
-Você verá a landing page do Creative Tim rodando no seu container Nginx.
-
-
-Passo 6: Concluindo - Subindo a Imagem para o Docker Hub
-Se você deseja compartilhar sua imagem Docker com outras pessoas ou armazená-la no Docker Hub, siga os seguintes passos:
-
-Faça login no Docker Hub (se ainda não estiver logado):
-
+Faça login no Docker Hub:
 ```bash
 docker login
 
 ```
 
+Tag a imagem Docker com o nome do seu usuário no Docker Hub (substitua seu-usuario pelo seu nome de usuário no Docker Hub):
 
-2 Taguear a imagem para envio:
-
-Antes de fazer o push da imagem para o Docker Hub, você precisa tagueá-la com seu nome de usuário do Docker Hub:
 ```bash
-docker tag meu-site-nginx seu_usuario/meu-site-nginx:latest
-
-```
-Subir a imagem para o Docker Hub:
-
-Agora, você pode enviar a imagem para o Docker Hub:
-```bash
-docker push seu_usuario/meu-site-nginx:latest
+docker tag landingpage-nginx seu-usuario/landingpage-nginx
 
 ```
 
+Suba a imagem para o Docker Hub:
+```bash
+docker push seu-usuario/landingpage-nginx
 
+```
