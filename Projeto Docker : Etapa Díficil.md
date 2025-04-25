@@ -243,5 +243,76 @@ docker logs app-nao-root
 
 ```
 Esse comando exibirá qualquer saída ou erro gerado pelo container.
+---
+
+📂 Passo 1: Criação da Pasta para o Projeto
+Primeiro, crie uma pasta para o seu projeto no diretório desejado:
+
+1.1 Criar a Pasta do Projeto
+No terminal, execute o seguinte comando para criar uma pasta para o seu projeto:
+```bash
+mkdir nome-do-projeto
+cd nome-do-projeto
+
+```
+
+🔧 Passo 2: Instalar os Pacotes Necessários
+Agora, vamos garantir que todas as ferramentas necessárias estão instaladas no seu sistema, como o Trivy e o jq.
+
+2.1 Instalar o Trivy
+Execute os seguintes comandos para instalar o Trivy, que é uma ferramenta para análise de vulnerabilidades em imagens Docker.
+
+Baixar o Trivy:
+
+```bash
+
+wget https://github.com/aquasecurity/trivy/releases/download/v0.50.1/trivy_0.50.1_Linux-64bit.deb
+
+```
+Instalar o Trivy:
+```bash
+sudo dpkg -i trivy_0.50.1_Linux-64bit.deb
+
+
+```
+Explicação:
+
+O comando wget baixa o pacote .deb do Trivy.
+
+O comando dpkg -i instala o pacote no seu sistema.
+
+
+```bash
+sudo dpkg -i trivy_0.50.1_Linux-64bit.deb
+
+
+```
+2.2 Instalar o jq
+O jq é uma ferramenta para processar e manipular JSON. Para instalar, execute:
+
+```bash
+sudo apt install jq
+
+```
+
+Explicação:
+
+O comando apt install jq instala a ferramenta jq, que será utilizada para processar os resultados do Trivy em formato JSON.
+
+🐳 Passo 3: Analisar Imagens Docker com Trivy
+Agora que você tem o Trivy e o jq instalados, podemos usar o Trivy para analisar imagens Docker.
+
+3.1 Analisar uma Imagem Docker
+Escolha a imagem Docker que deseja verificar. Por exemplo, para verificar a imagem python:3.9, execute o comando:
+
+```bash
+trivy image python:3.9
+
+```
+Explicação:
+
+O comando trivy image python:3.9 analisa a imagem Docker especificada (neste caso, python:3.9) em busca de vulnerabilidades.
+
+
 
 
