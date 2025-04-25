@@ -9,21 +9,29 @@ Executar um container NGINX que sirva uma página HTML com TailwindCSS (um frame
 
 🔗 01 - Container Nginx + Tailwind	Executa um container Nginx com site estático usando TailwindCSS.
 
-[Ir para seção 1](#1-rodando-um-container-básico-com-nginx-e-tailwindcss-)
-
 🔗 02 - Ubuntu Interativo	Executa um container Ubuntu de forma interativa, com scripts Bash.
-
-[Ir para seção 2](#2-criando-e-rodando-um-container-interativo)
 
 
 🔗 03 - Gerenciando Containers	Lista, para e remove containers usando comandos Docker.
 
-3️⃣ Listando e removendo containers
-
-
 🔗 04 - Flask com Dockerfile	Cria uma imagem para uma aplicação Flask simples.
 
-[Ir para seção 4](#4-criando-um-dockerfile-com-flask-python)
+
+## 📌 Índice
+
+- [Rodando um Container com Nginx e Tailwind](#nginx-tailwind)
+
+
+- 
+- [Criando e rodando um container interativo](#️-criando-e-rodando-um-container-interativo)
+- 
+- [Listando e removendo containers](#️-listando-e-removendo-containers)
+- 
+- [Criando um Dockerfile com Flask (Python)](#️-criando-um-dockerfile-com-flask-python)
+- 
+
+
+
 
 
 ---
@@ -44,7 +52,8 @@ docker run --name nginx-tailwind -p 8080:80 -v $(pwd):/usr/share/nginx/html:ro -
 
 ---
 
-### 1️⃣ Rodando um Container Básico com Nginx e TailwindCSS 🌐
+<h2 id="nginx-tailwind">1️⃣ Rodando um Container Básico com Nginx e TailwindCSS 🌐</h2>
+
 Descrição
 Neste desafio, vamos rodar um container Docker usando a imagem oficial do Nginx e configurar uma landing page com TailwindCSS. O objetivo é servir uma página estática através do Nginx, estilizada com o TailwindCSS.
 
