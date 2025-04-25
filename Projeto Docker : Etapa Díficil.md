@@ -135,8 +135,109 @@ docker tag landingpage-nginx seu-usuario/landingpage-nginx
 
 ```
 
-Suba a imagem para o Docker Hub:
+
+---
+
+# 🚀 **Meu App DESF10**
+
+Este projeto tem como objetivo demonstrar como criar uma aplicação **Dockerizada** com segurança, evitando a execução como usuário root dentro do container. A aplicação consiste em um simples **script Python**, rodando com um usuário não-root, utilizando um **Dockerfile** customizado.
+
+## 📑 **Sumário**
+
+1. [Objetivo do Projeto](#objetivo-do-projeto)
+2. [Pré-requisitos](#pré-requisitos)
+3. [Passo a Passo para Construção e Execução](#passo-a-passo-para-construção-e-execução)
+4. [Dockerfile Explicado](#dockerfile-explicado)
+5. [Verificação de Usuário Não-root](#verificação-de-usuário-não-root)
+6. [Execução do Script](#execução-do-script)
+7. [Notas Finais](#notas-finais)
+
+---
+
+## 🎯 **Objetivo do Projeto**
+
+Objetivo do Projeto
+O principal objetivo deste projeto é demonstrar como criar um ambiente de execução Dockerizado seguro, onde a aplicação é rodando com um usuário não-root, evitando vulnerabilidades associadas ao uso de privilégios elevados dentro do container.
+
+
+
+1. Criar o Diretório para o Projeto
+Primeiro, crie um diretório onde você armazenará o seu código e o Dockerfile. No terminal, execute:
+
+
 ```bash
-docker push seu-usuario/landingpage-nginx
+mkdir ~/meu-app-desf10
+cd ~/meu-app-desf10
 
 ```
+Este comando cria uma nova pasta chamada meu-app-desf10 e navega até ela.
+
+
+
+2. Criar o Script Python
+Dentro da pasta criada, crie o seu script Python, por exemplo, exe10.py. Você pode usar o nano para editar o arquivo:
+
+```bash
+
+
+```
+]Salve o arquivo pressionando Ctrl + X, depois Y para confirmar e Enter para sair.
+
+
+
+3. Criar o Dockerfile
+Agora, crie o Dockerfile que será usado para construir a imagem Docker. Para isso, crie um novo arquivo chamado Dockerfile:
+```bash
+
+
+```
+
+
+4. Construir a Imagem Docker
+Agora, que você tem o Dockerfile pronto, é hora de construir a imagem Docker. No terminal, dentro da pasta onde o Dockerfile está, execute:
+
+
+```bash
+docker build -t desf10-img .
+
+```
+
+
+Este comando irá construir a imagem com o nome desf10-img a partir do Dockerfile.
+
+
+5. Rodar o Container
+Após a construção da imagem, execute o container a partir dessa imagem. Use o seguinte comando:
+
+```bash
+docker run -d --name
+ app-nao-root desf10-img
+```
+6. Verificar o Usuário Dentro do Container
+Agora, você pode verificar se o container está sendo executado com o usuário não-root. Para isso, use o comando whoami dentro do container:
+
+
+
+```bash
+docker exec -it app-nao-root whoami
+```
+
+7. Rodar o Script no Container
+Você também pode rodar o script manualmente dentro do container para verificar se está funcionando corretamente. Use o seguinte comando:
+
+```bash
+docker exec -it app-nao-root python /app/exe10.py
+
+```
+
+
+8. Verificar os Logs do Container
+Se você quiser ver os logs de execução do container, use o comando:
+
+```bash
+docker logs app-nao-root
+
+```
+Esse comando exibirá qualquer saída ou erro gerado pelo container.
+
+
