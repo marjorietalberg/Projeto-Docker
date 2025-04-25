@@ -419,6 +419,9 @@ echo $(( $(wc -l < relatorio.md) - 2 ))
 
 echo $(( $(wc -l < relatorioant.md) - 2 ))
 ```
+
+<img src="https://github.com/user-attachments/assets/e700fdcf-1416-46af-8ad8-cdfce27e4ccf" alt="Image">
+
 ---
 ### ✅ Conclusão
 Neste exercício, foi possível identificar e corrigir diversas vulnerabilidades presentes em um Dockerfile com más práticas. A imagem original utilizava uma base genérica (python:3.9), o que aumentava consideravelmente o tamanho da imagem e trazia dependências desnecessárias e potencialmente inseguras. Além disso, a execução da aplicação ocorria com privilégios de root, o que representa um sério risco de segurança.
