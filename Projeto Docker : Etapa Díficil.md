@@ -14,7 +14,7 @@
 Este projeto tem como objetivo criar uma imagem Docker personalizada, baseada no servidor NGINX, que hospeda um site HTML/CSS moderno. Utilizamos como base a landing page open-source Material Kit da Creative Tim, para garantir um design elegante e responsivo.
 
 ---
-### 📌 Objetivos
+###  📌 Objetivos
 Utilizar o NGINX como servidor web dentro de um container.
 
 Inserir uma página HTML/CSS estática moderna no container.
