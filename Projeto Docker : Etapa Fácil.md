@@ -17,19 +17,6 @@ Executar um container NGINX que sirva uma página HTML com TailwindCSS (um frame
 🔗 04 - Flask com Dockerfile	Cria uma imagem para uma aplicação Flask simples.
 
 
-## 📌 Índice
-
-- [Rodando um Container com Nginx e Tailwind](#nginx-tailwind)
-
-
-- 
-- [Criando e rodando um container interativo](#️-criando-e-rodando-um-container-interativo)
-- 
-- [Listando e removendo containers](#️-listando-e-removendo-containers)
-- 
-- [Criando um Dockerfile com Flask (Python)](#️-criando-um-dockerfile-com-flask-python)
-- 
-
 
 
 
